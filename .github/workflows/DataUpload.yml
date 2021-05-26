@@ -1,0 +1,35 @@
+name: Data Upload
+
+# Controls when the action will run. Triggers the workflow once every day at 15:00 UTC
+on:
+  schedule:
+    - cron: '00 15 * * *'
+
+jobs:
+  update-clean-data:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install go_utils
+      run: pip install go_utils
+    - name: Clone Clean Data 
+      run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
+    - name: Update csvs
+      run: |
+        globe-mhm-download -o GLOBE-Clean-Datasets/General/Clean_MHM.csv 
+    - name: Push docs to doc repo
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-directory: 'GLOBE-Clean-Datasets'
+        destination-github-username: 'Piphi5'
+        destination-repository-name: 'GLOBE-Clean-Datasets'
+        user-email: uploadingacct71@gmail.com
+        target-branch: main
