@@ -22,7 +22,7 @@ jobs:
       run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
     - name: Update csvs
       run: |
-        globe-mhm-download -o GLOBE-Clean-Datasets/General/Clean_MHM.csv 
+        mhm-download -o GLOBE-Clean-Datasets/General/Clean_MHM.csv 
     - name: Push docs to doc repo
       uses: cpina/github-action-push-to-another-repository@main
       env:
