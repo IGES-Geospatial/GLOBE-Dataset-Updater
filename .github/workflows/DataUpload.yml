@@ -4,6 +4,11 @@ name: Data Upload
 on:
   schedule:
     - cron: '00 15 * * *'
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'PR ID'
+        default: 'main'
 
 jobs:
   update-clean-data:
