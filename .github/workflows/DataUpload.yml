@@ -26,10 +26,8 @@ jobs:
     - name: Clone Clean Data 
       run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
     - name: Update csvs
-      run: |
-        mhm-download -o GLOBE-Clean-Datasets/General/Clean_MHM.csv
-        lc-download -o "GLOBE-Clean-Datasets/General/Clean_LC.csv" 
-    - name: Push docs to doc repo
+      run: python main.py
+    - name: Push data to data repo
       uses: cpina/github-action-push-to-another-repository@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
