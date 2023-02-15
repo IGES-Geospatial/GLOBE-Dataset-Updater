@@ -22,7 +22,7 @@ jobs:
       with:
         python-version: 3.8
     - name: Install SetupTools 
-    - run: pip install setuptools==63.4.3
+      run: pip install setuptools==63.4.3
     - name: Install go_utils
       run: pip install go_utils
     - name: Clone Clean Data 
