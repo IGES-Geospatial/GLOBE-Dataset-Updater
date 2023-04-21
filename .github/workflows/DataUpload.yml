@@ -23,8 +23,10 @@ jobs:
         python-version: 3.8
     - name: Upgrade Pip
       run: pip install --upgrade pip
+    - name: Install Wheel
+      run: pip install --upgrade wheel
     - name: Install SetupTools 
-      run: pip install setuptools
+      run: pip install --upgrade setuptools
     - name: Install Keyring
       run: pip install keyring==21.7.0
     - name: Install libkrb5-dev
@@ -32,7 +34,7 @@ jobs:
     - name: Install gssapi
       run: pip install gssapi
     - name: Install arcgis
-      run: pip install arcgis==1.9.1
+      run: pip install --use-pep517 arcgis==1.9.1
     - name: Install go_utils
       run: pip install go_utils
     - name: Clone Clean Data 
