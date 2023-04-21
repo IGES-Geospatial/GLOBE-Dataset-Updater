@@ -24,7 +24,7 @@ jobs:
     - name: Install SetupTools 
       run: pip install setuptools==57.4.0
     - name: Install arcgis
-      run: pip install arcgis==1.9.1
+      run: pip install arcgis==2.1.0.3
     - name: Install go_utils
       run: pip install go_utils
     - name: Clone Clean Data 
