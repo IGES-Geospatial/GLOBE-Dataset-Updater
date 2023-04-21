@@ -35,8 +35,8 @@ jobs:
 #       run: pip install gssapi
 #     - name: Install arcgis
 #       run: pip install --no-use-pep517 arcgis==1.9.1
-    - name: Install --no-use-pep517 go_utils
-      run: pip install go_utils
+    - name: Install go_utils
+      run: pip install --no-use-pep517 go_utils
     - name: Clone Clean Data 
       run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
     - name: Update csvs
