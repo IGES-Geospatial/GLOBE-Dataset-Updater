@@ -22,9 +22,7 @@ jobs:
       with:
         python-version: 3.8
     - name: Install SetupTools 
-      run: pip install setuptools==63.4.3
-    - name: Install Keyring
-      run: pip install keyring==21.7.0
+      run: pip install setuptools==57.4.0
     - name: Install arcgis
       run: pip install arcgis==1.9.1
     - name: Install go_utils
