@@ -23,6 +23,10 @@ jobs:
         python-version: 3.8
     - name: Install SetupTools 
       run: pip install setuptools==57.4.0
+    - name: Install libkrb5-dev
+      run: sudo apt-get install -y libkrb5-dev
+    - name: Install gssapi
+      run: pip install gssapi
     - name: Install arcgis
       run: pip install arcgis==2.1.0.3
     - name: Install go_utils
