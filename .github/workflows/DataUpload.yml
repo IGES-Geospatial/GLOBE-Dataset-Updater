@@ -21,8 +21,12 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    - name: Upgrade Pip
+      run: pip install --upgrade pip
     - name: Install SetupTools 
-      run: pip install setuptools==57.4.0
+      run: pip install setuptools
+    - name: Install Keyring
+      run: pip install keyring==21.7.0
     - name: Install libkrb5-dev
       run: sudo apt-get install -y libkrb5-dev
     - name: Install gssapi
