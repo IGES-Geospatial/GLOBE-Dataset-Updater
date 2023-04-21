@@ -21,21 +21,21 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - name: Install Pip
-      run: pip install pip==23.0.1
-    - name: Install Wheel
-      run: pip install --upgrade wheel
-    - name: Install SetupTools 
-      run: pip install setuptools==63.4.3
+#     - name: Install Pip
+#       run: pip install pip==23.0.1
+#     - name: Install Wheel
+#       run: pip install --upgrade wheel
+#     - name: Install SetupTools 
+#       run: pip install setuptools==63.4.3
 #     - name: Install Keyring
 #       run: pip install keyring==21.7.0
 #     - name: Install libkrb5-dev
 #       run: sudo apt-get install -y libkrb5-dev
 #     - name: Install gssapi
 #       run: pip install gssapi
-    - name: Install arcgis
-      run: pip install --no-use-pep517 arcgis==1.9.1
-    - name: Install go_utils
+#     - name: Install arcgis
+#       run: pip install --no-use-pep517 arcgis==1.9.1
+    - name: Install --no-use-pep517 go_utils
       run: pip install go_utils
     - name: Clone Clean Data 
       run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
