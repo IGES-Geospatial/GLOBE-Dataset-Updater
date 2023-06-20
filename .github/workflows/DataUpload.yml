@@ -28,7 +28,7 @@ jobs:
     - name: Install SetupTools 
       run: python -m pip install --upgrade setuptools
     - name: Install arcgis
-      run: python -m pip install --no-use-pep517 arcgis==1.9.1
+      run: python -m pip install --use-pep517 arcgis==1.9.1
     - name: Install go_utils
       run: python -m pip install go_utils
     - name: Clone Clean Data 
