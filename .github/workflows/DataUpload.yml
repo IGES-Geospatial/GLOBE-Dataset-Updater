@@ -22,13 +22,13 @@ jobs:
       with:
         python-version: 3.8
     - name: Install Pip
-      run: python -m pip install --upgrade pip
+      run: python -m pip install pip==23.0.1
     - name: Install Wheel
       run: python -m pip install --upgrade wheel
     - name: Install SetupTools 
-      run: python -m pip install --upgrade setuptools
+      run: python -m pip install setuptools==63.4.3
     - name: Install arcgis
-      run: python -m pip install --use-pep517 arcgis==1.9.1
+      run: python -m pip install --no-use-pep517 arcgis==1.9.1
     - name: Install go_utils
       run: python -m pip install go_utils
     - name: Clone Clean Data 
