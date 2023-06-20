@@ -22,11 +22,11 @@ jobs:
       with:
         python-version: 3.8
     - name: Install Pip
-      run: pip install --upgrade wheel
+      run: pip install --upgrade pip
     - name: Install Wheel
       run: pip install --upgrade wheel
     - name: Install SetupTools 
-      run: pip install --upgrade wheel
+      run: pip install --upgrade setuptools
     - name: Install arcgis
       run: pip install --no-use-pep517 arcgis==1.9.1
     - name: Install go_utils
