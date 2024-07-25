@@ -18,14 +18,14 @@ mhm_df.to_csv(
     escapechar="”",
 )
 
-lc_df = get_api_data(landcover_protocol)
-lc_df = filter_invalid_coords(lc_df, "lc_Latitude", "lc_Longitude", True)
-lc_df.to_csv(
-    f"{out_dir}/Clean_LC.csv",
-    sep=",",
-    index=False,
-    encoding="utf-8",
-    quoting=csv.QUOTE_ALL,
-    quotechar='"',
-    escapechar="”",
-)
+# lc_df = get_api_data(landcover_protocol)
+# lc_df = filter_invalid_coords(lc_df, "lc_Latitude", "lc_Longitude", True)
+# lc_df.to_csv(
+#     f"{out_dir}/Clean_LC.csv",
+#     sep=",",
+#     index=False,
+#     encoding="utf-8",
+#     quoting=csv.QUOTE_ALL,
+#     quotechar='"',
+#     escapechar="”",
+# )
