@@ -45,4 +45,4 @@ jobs:
         destination-repository-name: 'GLOBE-Clean-Datasets'
         user-email: uploadingacct71@gmail.com
         target-branch: main
-    - uses: gautamkrishnar/keepalive-workflow@v1 # Prevents workflow shutdown after 60 days of inactivity
+   # - uses: gautamkrishnar/keepalive-workflow@v1 # Prevents workflow shutdown after 60 days of inactivity
