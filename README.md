@@ -4,4 +4,4 @@ This repo updates GLOBE Observer data that has been preprocessed to be more intu
 
 It utilizes the [go_utils package](https://github.com/IGES-Geospatial/globe-observer-utils) to perform such operations.<br/><br/>
 
-<!--run-start--> Last successful run: 2025-07-14 15:32 UTC (run #16271020109) <!--run-end-->
+<!--run-start--> Last successful run: 2025-07-15 15:30 UTC (run #16297503275) <!--run-end-->
