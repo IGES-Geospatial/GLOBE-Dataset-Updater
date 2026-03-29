@@ -1,61 +1,61 @@
-name: Data Upload
+# name: Data Upload
 
-# Controls when the action will run. Triggers the workflow once every day at 15:00 UTC
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '00 15 * * *'
+# # Controls when the action will run. Triggers the workflow once every day at 15:00 UTC
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '00 15 * * *'
 
-jobs:
-  update-clean-data:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+# jobs:
+#   update-clean-data:
+#     runs-on: ubuntu-latest
+#     if: github.ref == 'refs/heads/main'
 
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.8.16
-    - name: Install Pip
-      run: python -m pip install pip==23.0.1
-    - name: Install Wheel
-      run: python -m pip install --upgrade wheel
-    - name: Install SetupTools 
-      run: python -m pip install setuptools==63.4.3
-    - name: Install arcgis
-      run: python -m pip install --no-use-pep517 arcgis==1.9.1
-    - name: Install go_utils
-      run: python -m pip install go_utils
-    - name: Clone Clean Data 
-      run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
-    - name: Update csvs
-      run: python main.py
-    - name: Push data to data repo
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source-directory: 'GLOBE-Clean-Datasets'
-        destination-github-username: 'Piphi5'
-        destination-repository-name: 'GLOBE-Clean-Datasets'
-        user-email: uploadingacct71@gmail.com
-        target-branch: main
-    - name: Update README.md with the latest run info
-      run: |
-        DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
-        RUN_ID=${{ github.run_id }}
-        REPO=${{ github.repository }}
-        UPDATE_TEXT="Last successful run: $DATE (run #$RUN_ID)"
-        sed -i "s|<!--run-start-->.*<!--run-end-->|<!--run-start--> $UPDATE_TEXT <!--run-end-->|" README.md
-    - name: Commit and push changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add README.md
-        if git diff --cached --quiet; then
-          echo "No changes to commit."
-        else
-          git commit -m "Update README with latest run info"
-          git push
-        fi
+#     steps:
+#     - uses: actions/checkout@v4
+#     - name: Set up Python 3.8
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: 3.8.16
+#     - name: Install Pip
+#       run: python -m pip install pip==23.0.1
+#     - name: Install Wheel
+#       run: python -m pip install --upgrade wheel
+#     - name: Install SetupTools 
+#       run: python -m pip install setuptools==63.4.3
+#     - name: Install arcgis
+#       run: python -m pip install --no-use-pep517 arcgis==1.9.1
+#     - name: Install go_utils
+#       run: python -m pip install go_utils
+#     - name: Clone Clean Data 
+#       run: git clone https://github.com/Piphi5/GLOBE-Clean-Datasets.git
+#     - name: Update csvs
+#       run: python main.py
+#     - name: Push data to data repo
+#       uses: cpina/github-action-push-to-another-repository@main
+#       env:
+#         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#       with:
+#         source-directory: 'GLOBE-Clean-Datasets'
+#         destination-github-username: 'Piphi5'
+#         destination-repository-name: 'GLOBE-Clean-Datasets'
+#         user-email: uploadingacct71@gmail.com
+#         target-branch: main
+#     - name: Update README.md with the latest run info
+#       run: |
+#         DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
+#         RUN_ID=${{ github.run_id }}
+#         REPO=${{ github.repository }}
+#         UPDATE_TEXT="Last successful run: $DATE (run #$RUN_ID)"
+#         sed -i "s|<!--run-start-->.*<!--run-end-->|<!--run-start--> $UPDATE_TEXT <!--run-end-->|" README.md
+#     - name: Commit and push changes
+#       run: |
+#         git config --global user.name 'github-actions[bot]'
+#         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+#         git add README.md
+#         if git diff --cached --quiet; then
+#           echo "No changes to commit."
+#         else
+#           git commit -m "Update README with latest run info"
+#           git push
+#         fi
